@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="title">Course Survey Form</h1> <hr>
+    <p id="description">Please fill out the required information</p>
+    <form id="survey-form">
+        <div>
+            <label for="name-label" id="name-label">Name<br><input id="name" type="text" required placeholder="Enter your name"></label>
+        </div>
+    <div>
+          <label for="email-label" id="email-label">E-mail<br><input id="email" type="email" required placeholder="Enter your mail-id"></label>
+    </div>
+     <div>
+          <label for="DOB">Date of Birth<br><input id="DOB" type="date" required></label>
+    </div>
+     <div>
+          <label for="p.no">Phone number<br><input id="p.no" type="tel" required placeholder="Enter your contact number" max="10"></label>
+    </div>
+     <div>
+          <label for="college">College<br><input id="college" type="text" required placeholder="Enter the name of your college"></label>
+    </div>
+    <div>
+          <label for="number-label" id="number-label">Enter the Referral code<br><input id="number" type="number" required placeholder="Enter your college referral code" min="100" max="1000"></label>
+    </div>
+     <div>
+          <label for="gender">Gender</label><br>
+          <input id="rb" type="radio" name="rb"required  value="male">Male <br>
+          <input id="rb" type="radio" name="rb"required value="female">FeMale <br>
+          <input id="rb" type="radio" name="rb"required value="others">Others <br>
+    </div>
+    <div>
+        <label>Select your Branch</label> <br>
+        <select id="dropdown">
+            <option>CSE/IT</option>
+            <option>MECH/CIVIL</option>
+            <option>ECE/EEE</option>
+            <option>Others</option>
+        </select>
+    </div>
+    <div>
+          <label for="cb">Tick the interested Domains</label><br>
+          <input id="cb1" type="checkbox" value="sd">Software Development <br>
+           <input id="cb2" type="checkbox" value="wd">Web Development <br>
+            <input id="cb3" type="checkbox" value="ad">App Development <br>
+             <input id="cb4" type="checkbox" value="cs">CyberSecurity <br>
+              <input id="cb5" type="checkbox" value="cc">Cloud Computing<br>
+               <input id="cb6" type="checkbox" value="iot">Internet of Things<br>
+                <input id="cb7" type="checkbox" value="bc">Block Chain<br>
+                 <input id="cb8" type="checkbox" value="ds"> Data Science<br>
+                  <input id="cb9" type="checkbox" value="ml">Machine learning<br>
+                   <input id="cb10" type="checkbox" value="ai">Artificial Intelligence<br>
+         
+    </div>
+    <div for ="ta">
+        <textarea tile="Write your suggestions" rows="5" cols="40">Write your suggestions....</textarea>
+    </div>  <br>
+    <label>
+        <button type="submit" id="submit">Submit</button>
+    </label>
+    </form>
+</body>
+</html>

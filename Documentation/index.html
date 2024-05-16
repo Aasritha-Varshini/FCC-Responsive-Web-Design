@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ryERGg6w699Rd8enwuKusnOyH0Ga2x3Kq9IKgN5OGwAEn2aw2wlV9YZ6UppI4oy93E6nlvOxwEKNfr2DegiZ2z5hw3XnAw3KTZXxKZdXHlc" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly90ZWNobmljYWwtZG9jdW1lbnRhdGlvbi1wYWdlLmZyZWVjb2RlY2FtcC5yb2Nrcy8"/></head>
+  <body>
+    <nav id="navbar">
+      <header>Data Structures Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Searching_Techniques">Searching Techniques</a></li>
+        <li>
+          <a class="nav-link" href="#Sorting_Techniques"
+            >Sorting Techniques</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Linked_Lists"
+            >Linked Lists</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Stack_and_Queue">Stack and Queue</a></li>
+        <li><a class="nav-link" href="#Trees">Trees</a></li>
+        <li>
+          <a class="nav-link" href="#Graphs"
+            >Graphs</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header style="text-align:center;">Introduction</header>
+        <article>
+           <p>
+                Data structures are fundamental components of computer science and programming. They are designed to
+                organize, store, and manipulate data efficiently, enabling effective problem-solving and algorithm
+                design. Data structures provide a way to represent and manage data in a structured format, allowing for
+                quick and convenient access, modification, and retrieval.
+            </p>
+            <p>
+                Data structures are crucial because they determine how data is stored in computer memory and how
+                operations are performed on that data. By choosing the appropriate data structure for a specific problem
+                or task, developers can optimize the efficiency of their algorithms and improve the overall performance
+                of their software.
+            </p>
+            
+            <header>Applications</header>
+            <p>Data structures have a wide range of applications in various fields of computer science and
+                programming. Here are some common applications of different data structures:</p>
+            <ul>
+                <li>Arrays:</li>
+                <ul>
+                    <li>Storing and accessing elements in a sequential manner.</li>
+                    <li>Implementing matrices and multi-dimensional data structures.</li>
+                    <li>Used in sorting and searching algorithms like binary search.</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Linked Lists:</li>
+                <ul>
+                    <li>Implementing dynamic data structures.</li>
+                    <li>Efficient insertion and deletion operations.</li>
+                    <li>Implementing stacks and queues.</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Stacks:</li>
+                <ul>
+                    <li>Function call management in programming languages.</li>
+                    <li>Expression evaluation and syntax parsing.</li>
+                    <li>Undo/Redo operations in text editors.</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Queues:</li>
+                <ul>
+                    <li>Process scheduling in operating systems.</li>
+                    <li>Job scheduling in batch processing systems.</li>
+                    <li>Implementing breadth-first search (BFS) algorithm.</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Trees:</li>
+                <ul>
+                    <li>Representing hierarchical relationships (e.g., file systems, organization structures).</li>
+                    <li>Implementing search trees like binary search trees (BST).</li>
+                    <li>Building decision trees for machine learning algorithms.</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Graphs:</li>
+                <ul>
+                    <li>Modeling and analyzing social networks.</li>
+                    <li>Web page ranking algorithms (e.g., PageRank).</li>
+                    <li>Shortest path algorithms (e.g., Dijkstra's algorithm).</li>
+                </ul>
+            </ul>
+            <ul>
+                <li>Hash Tables:</li>
+                <ul>
+                    <li>Implementing dictionaries and associative arrays.</li>
+                    <li>Checking for duplicate values.</li>
+                    <li>Caching and memoization techniques.</li>
+                </ul>
+            </ul>
+            <p>
+                These are just a few examples, and data structures find applications in numerous other areas of
+                computer science, such as databases, compilers, operating systems, artificial intelligence, and
+                more. Understanding the appropriate use of data structures helps in designing efficient algorithms
+                and optimizing the performance of software systems.
+            </p>
+            </li>
+                    
+            <header>Prerequisites</header>
+            <p>
+                To effectively understand and work with data structures, it is helpful to have a solid foundation in certain prerequisite concepts and programming skills. Here are some prerequisites that can enhance
+                your understanding and application of data structures:
+            </p>
+            <ul>
+                <li>Programming Fundamentals</li>
+                <li>Object-Oriented Programming (OOP)</li>
+                <li>Algorithms and Complexity Analysis</li>
+                <li>Basic Data Types and Structures</li>
+                <li>Pointers and Memory Management</li>
+                <li>Problem-Solving and Analytical Thinking</li>
+            </ul>         
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Searching_Techniques">
+        <header style="text-align:center;">Searching Techniques</header>
+        <article>
+            <p>
+                Searching is the process of finding a given value position in a list of values.It decides whether a search key is present in the data or not.It is the algorithmic process of finding a particular item in a
+                collection of items.It can be done on internal data structure or on external data structure.
+            </p>
+
+            <header>Linear Search</header>
+             <p>
+                Linear search, also known as sequential search, is a simple searching algorithm used to find a target element within a data structure. It works by sequentially checking each element in the structure until a match is found or the end of the structure is reached.
+             </p>
+            <code>
+                def linear_search(arr, target):
+                for i in range(len(arr)):
+                    if arr[i] == target:
+                        return i  # Return the index where the target element is found
+                return -1  # Return -1 if the target element is not found
+
+                # Example usage
+                data = [5, 2, 9, 1, 7, 3]
+                target_element = 9
+
+                result = linear_search(data, target_element)
+                if result != -1:
+                    print(f"Element {target_element} found at index {result}")
+                else:
+                    print("Element not found")
+            </code>
+            <p>
+                Linear search has a time complexity of O(n) in the worst case, where n is the number of elements in the data structure. This means that the time taken to perform the search grows linearly with the size of the structure.
+            </p>
+                    
+            <header>Binary Search</header>
+            <p>
+                Binary search is a commonly used searching algorithm for finding a target element in a sorted data structure. It follows a divide-and-conquer approach and is particularly efficient for large sorted arrays or binary search trees.
+            </p>
+            <code>
+                def binary_search(arr, target):
+                left = 0
+                right = len(arr) - 1
+
+                while left <= right:
+                    mid = (left + right) // 2  # Calculate the middle index
+                    if arr[mid] == target:
+                        return mid  # Return the index where the target element is found
+                    elif arr[mid] < target:
+                        left = mid + 1  # Update the lower bound
+                    else:
+                        right = mid - 1  # Update the upper bound
+
+                return -1  # Return -1 if the target element is not found
+
+                # Example usage
+                data = [1, 2, 3, 5, 7, 9]
+                target_element = 5
+
+                result = binary_search(data, target_element)
+                if result != -1:
+                print(f"Element {target_element} found at index {result}")
+                else:
+                print("Element not found")
+            </code>
+            <p>
+                Binary search has a time complexity of O(log n) in the worst case, where n is the number of elements
+                in the data structure. This logarithmic time complexity indicates that the search time increases
+                slowly even as the size of the structure grows significantly.
+            </p>              
+
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Sorting_Techniques">
+        <header style="text-align:center;">Sorting Techniques</header>
+        <article>
+            <p>
+                Sorting is a fundamental operation in data structures that involves arranging a collection of elements in
+                a specific order. The order can be based on various criteria, such as numerical or lexicographical
+                order. Sorting allows for efficient searching, easier data analysis, and improved performance of other
+                algorithms that rely on ordered data.
+            </p>
+            
+            <header>Bubble Sort</header>
+            <p>
+                Bubble Sort is a simple comparison-based sorting algorithm that repeatedly steps through a list,
+                compares adjacent elements, and swaps them if they are in the wrong order. It gets its name from the
+                way smaller elements "bubble" to the top of the list during each iteration.
+            </p>
+            <code>
+                def bubble_sort(arr):
+                n = len(arr)
+                for i in range(n):
+                    # Last i elements are already in place
+                    for j in range(0, n - i - 1):
+                        # Compare adjacent elements and swap if necessary
+                        if arr[j] > arr[j + 1]:
+                            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+                # Example usage
+                data = [7, 2, 5, 1, 9, 3]
+                bubble_sort(data)
+                print("Sorted array:", data)
+            </code>
+            <p>
+                Bubble Sort has a worst-case time complexity of O(n^2), where n is the number of elements in the
+                array. This makes it inefficient for large arrays. However, it has the advantage of being easy to
+                understand and implement, and it performs well for small or nearly sorted arrays.
+            </p>
+                    
+            <header>Insertion Sort</header>
+            <p>
+                Insertion Sort is a simple comparison-based sorting algorithm that builds the final sorted array one
+                element at a time. It works by repeatedly inserting an element into its proper position within the
+                already sorted portion of the array.
+            </p>
+            <code>
+                def insertion_sort(arr):
+                n = len(arr)
+                for i in range(1, n):
+                    key = arr[i]  # Element to be inserted into the sorted portion
+                    j = i - 1  # Index of the last element in the sorted portion
+
+                    # Compare key with elements in the sorted portion and shift them if necessary
+                    while j >= 0 and arr[j] > key:
+                        arr[j + 1] = arr[j]
+                        j -= 1
+
+                    arr[j + 1] = key  # Insert the key into its proper position
+
+                # Example usage
+                data = [7, 2, 5, 1, 9, 3]
+                insertion_sort(data)
+                print("Sorted array:", data)
+            </code>
+            <p>
+                Insertion Sort has a worst-case time complexity of O(n^2), where n is the number of elements in the
+                array. However, it performs well for small or nearly sorted arrays and has an advantage over other
+                sorting algorithms when it comes to partially sorted or online data, as it can efficiently insert
+                elements into an already sorted array.
+            </p>
+                    
+            <header>Quick Sort</header>
+            <p>
+                Quick Sort is a widely used divide-and-conquer sorting algorithm that recursively partitions an array
+                into smaller subarrays based on a chosen pivot element. It is known for its efficiency and is often
+                faster than other comparison-based sorting algorithms.
+            </p>
+            <code>
+                def quick_sort(arr):
+                if len(arr) <= 1:
+                    return arr
+
+                pivot = arr[0]
+                lesser = [x for x in arr[1:] if x < pivot]
+                greater = [x for x in arr[1:] if x >= pivot]
+
+                return quick_sort(lesser) + [pivot] + quick_sort(greater)
+
+                # Example usage
+                data = [7, 2, 5, 1, 9, 3]
+                sorted_data = quick_sort(data)
+                print("Sorted array:", sorted_data)
+            </code>
+            <p>
+                Quick Sort has an average-case time complexity of O(n log n), making it one of the fastest sorting
+                algorithms for large datasets. However, in the worst-case scenario where the pivot is consistently
+                chosen poorly (e.g., already sorted or reverse sorted array), the time complexity can be O(n^2).
+                Various techniques can be employed to optimize Quick Sort and improve its performance, such as
+                choosing a random pivot, using a median-of-three pivot selection, or implementing a hybrid algorithm
+                that switches to another sorting algorithm for small subarrays.
+            </p>
+                    
+            <header>Merge Sort</header>
+            <p>
+                Merge Sort is a divide-and-conquer sorting algorithm that divides the input array into smaller
+                subarrays, recursively sorts them, and then merges the sorted subarrays to produce the final sorted
+                array. It is known for its stability (preserves the relative order of equal elements) and has a
+                consistent time complexity.
+            </p>
+            <code>
+                def merge_sort(arr):
+                if len(arr) <= 1:
+                    return arr
+
+                # Divide the array into two halves
+                mid = len(arr) // 2
+                left_half = arr[:mid]
+                right_half = arr[mid:]
+
+                # Recursively apply Merge Sort to the two halves
+                sorted_left = merge_sort(left_half)
+                sorted_right = merge_sort(right_half)
+
+                # Merge the sorted halves
+                return merge(sorted_left, sorted_right)
+
+
+                def merge(left, right):
+                merged = []
+                i = j = 0
+
+                # Compare elements from the two subarrays and merge them in order
+                while i < len(left) and j < len(right):
+                    if left[i] <= right[j]:
+                        merged.append(left[i])
+                        i += 1
+                    else:
+                        merged.append(right[j])
+                        j += 1
+
+                # Append any remaining elements from the subarrays
+                merged.extend(left[i:])
+                merged.extend(right[j:])
+
+                return merged
+
+                # Example usage
+                data = [7, 2, 5, 1, 9, 3]
+                sorted_data = merge_sort(data)
+                print("Sorted array:", sorted_data)
+            </code>
+            <p>
+                Merge Sort has a time complexity of O(n log n) in all cases, where n is the number of elements in the
+                array. It performs well even for large datasets and is considered one of the most efficient sorting
+                algorithms. However, it requires additional space for merging the subarrays, which makes its space
+                complexity O(n).
+            </p>
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Linked_Lists">
+        <header style="text-align:center;">Linked Lists</header>
+        <article>
+        <p>
+                A linked list is a linear data structure in which elements are stored as nodes, each containing a value
+                and a reference (or link) to the next node in the sequence. Unlike arrays, linked lists do not require
+                contiguous memory allocation, allowing for dynamic memory management and efficient insertion and
+                deletion operations.
+            </p>
+            <p>Linked lists have some key characteristics:<br>
+
+                <u>Dynamic Size</u>: Linked lists can grow or shrink dynamically as elements are inserted or removed. This
+                flexibility makes them useful in scenarios where the size of the data is unknown or changes
+                frequently.<br>
+
+                <u>Efficient Insertion and Deletion</u>: Inserting or deleting an element in a linked list involves updating a
+                few references, typically with a time complexity of O(1) for the beginning or end of the list. However,
+                accessing a specific element in the middle of the list requires traversing through the list, resulting
+                in a time complexity of O(n), where n is the number of elements in the list.<br>
+
+               <u> Non-Contiguous Memory Allocation</u>: Linked lists do not require contiguous memory allocation, unlike
+                arrays. Each node can be located anywhere in memory, and the references between nodes link them
+                together.<br>
+
+                <u>Dynamic Memory Management</u>: Linked lists allow for efficient memory allocation and deallocation. Nodes
+                can be dynamically allocated and linked together as needed, and memory can be freed when nodes are
+                removed.</p>
+            <p>
+                Linked lists provide flexibility and efficient insertion/deletion operations but have slower access times
+                compared to arrays. The choice of linked list type depends on the specific requirements of the
+                application, considering factors such as traversal direction, memory usage, and desired operations.
+            </p>
+            
+            <header>Single Linked Lists</header>
+            <p>
+                A singly linked list is a type of linked list where each node contains a value and a reference (or
+                link) to the next node in the list. It is called "singly" linked because the links between nodes are
+                unidirectional, allowing traversal only in one direction, typically from the head (the first node)
+                to the tail (the last node).
+            </p>
+            <p>
+                The operations commonly performed on a singly linked list include:<br>
+
+                Insertion: Adding a new node to the list.<br>
+
+                Insertion at the beginning (prepend): Create a new node, set its next reference to the current head,
+                and update the head to the new node.<br>
+                Insertion at the end (append): Create a new node, set the next reference of the last node to the new
+                node, and update the tail to the new node.<br>
+                Deletion: Removing a node from the list.<br>
+
+                Deletion at the beginning (remove head): Update the head to point to the next node and remove the
+                reference to the old head.
+                Deletion at the end (remove tail): Traverse the list to find the second-to-last node, update its
+                next reference to null, and update the tail to the new last node.<br>
+                Traversal: Visiting each node in the list sequentially to access or manipulate the data.<br>
+
+                Searching: Looking for a specific value in the list by traversing through the nodes until a match is
+                found or reaching the end of the list.<br>
+
+                Length: Counting the number of nodes in the list by iterating through the nodes and incrementing a
+                counter.
+            </p>
+            <p>Here is a visual representation of a singly linked list:</p>
+            <code>
+                Head -> [Node1] -> [Node2] -> [Node3] -> ... -> [Tail] -> null
+            </code>
+            <p>
+                Singly linked lists are commonly used when dynamic resizing or frequent insertions and deletions at
+                the beginning or end of the list are required. However, accessing or modifying nodes in the middle
+                of the list requires traversing from the head, resulting in a time complexity of O(n), where n is
+                the number of nodes in the list.
+            </p>
+                    
+            <header>Double Linked Lists</header>
+            <p>
+                A doubly linked list is a type of linked list where each node contains a value and references to both
+                the next node and the previous node in the list. Unlike a singly linked list, a doubly linked list
+                allows for traversal in both directions, forward and backward.
+            </p>
+            <p>
+                The operations commonly performed on a doubly linked list include:<br>
+
+                Insertion: Adding a new node to the list.<br>
+
+                Insertion at the beginning (prepend): Create a new node, set its next reference to the current head,
+                set the previous reference of the current head to the new node, and update the head to the new
+                node.<br>
+                Insertion at the end (append): Create a new node, set its previous reference to the current tail,
+                set the next reference of the current tail to the new node, and update the tail to the new node.
+                Deletion: Removing a node from the list.<br>
+
+                Deletion at the beginning (remove head): Update the head to point to the next node, set the previous
+                reference of the new head to null, and remove the references to the old head.<br>
+                Deletion at the end (remove tail): Update the tail to point to the previous node, set the next
+                reference of the new tail to null, and remove the references to the old tail.<br>
+                Traversal: Visiting each node in the list sequentially to access or manipulate the data. Traversal
+                can be done both forward and backward.<br>
+
+                Searching: Looking for a specific value in the list by traversing through the nodes until a match is
+                found or reaching the end of the list.<br>
+
+                Length: Counting the number of nodes in the list by iterating through the nodes and incrementing a
+                counter.
+            </p>
+            <p>Here is a visual representation of a doubly linked list:</p>
+            <code>
+                null <- [Node1] <--> [Node2] <--> [Node3] <--> ... <--> [Tail] -> null
+            </code>
+            <p>
+                Doubly linked lists provide the additional benefit of backward traversal compared to singly linked
+                lists, allowing for more flexible operations and efficient removal of nodes at the end of the list.
+                However, they require slightly more memory to store the additional references, and the operations
+                may involve more complex pointer manipulation.
+            </p>
+                    
+            <header>Circular Linked Lists</header>
+            <p>
+                A circular linked list is a variation of a linked list in which the last node of the list points back
+                to the first node, creating a circular structure. In other words, the next reference of the tail
+                node points to the head node, forming a loop.
+            </p>
+            <p>
+                The operations on a circular linked list are similar to those of a regular linked list, but with a
+                slight modification in handling the end of the list:<br>
+
+                Insertion: Adding a new node to the list.<br>
+
+                Insertion at the beginning (prepend): Create a new node, set its next reference to the current head,
+                update the next reference of the tail to the new node, and update the head to the new node.
+                Insertion at the end (append): Create a new node, set its next reference to the head, update the
+                next reference of the current tail to the new node, and update the tail to the new node.
+                Deletion: Removing a node from the list.<br>
+
+                Deletion at the beginning (remove head): Update the head to point to the next node, update the next
+                reference of the tail to the new head, and remove the references to the old head.<br>
+                Deletion at the end (remove tail): Traverse the list to find the second-to-last node, update its
+                next reference to the head, update the tail to the new last node, and remove the references to the
+                old tail.<br>
+                Traversal: Visiting each node in the circular linked list sequentially to access or manipulate the
+                data. Traversal can start from the head and continue until the tail, or vice versa.<br>
+
+                Searching: Looking for a specific value in the circular linked list by traversing through the nodes
+                until a match is found or reaching the starting point (head) again.<br>
+
+                Length: Counting the number of nodes in the circular linked list by iterating through the nodes and
+                incrementing a counter until the traversal reaches the starting point (head) again.
+            </p>
+            <p>Here is a visual representation of a circular linked list:</p>
+            <code>
+                Head -> [Node1] -> [Node2] -> [Node3] -> ... -> [Tail]
+^                                            |
+|--------------------------------------------|
+            </code>
+            <p>
+                Circular linked lists are used in situations where circular behavior is desired, such as implementing
+                circular buffers, representing a round-robin scheduling algorithm, or creating circular lists for
+                certain data structures or algorithms. They provide a cyclic structure that can be traversed
+                indefinitely without a definitive end.
+            </p>
+
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Stack_and_Queue">
+        <header style="text-align:center;">Stack and Queue</header>
+        <article>
+            <p>
+                Stacks and queues are two fundamental data structures used to store and manipulate collections of
+                elements. They have different rules for accessing and removing elements, which make them suitable for
+                specific scenarios.
+            </p>
+            <p>
+                Both stacks and queues can be implemented using arrays or linked lists. Arrays provide random access to
+                elements but have a fixed size, while linked lists offer dynamic size but require additional memory for
+                the node references.The choice between using a stack or a queue depends on the problem's characteristics
+                and the desired behavior for storing and accessing elements.
+            </p>
+                    
+            <header>Stack</header>
+            <p>
+                In data structures, a stack is an abstract data type that follows the Last-In-First-Out (LIFO)
+                principle. It represents a collection of elements with two primary operations: push and pop. The
+                stack operates on a restricted set of operations, making it simple yet powerful in solving various
+                problems.
+            </p>
+            <p>Operations:<br>
+                Push: This operation adds an element to the top of the stack. The new element becomes the top, and
+                all other elements are shifted down.<br>
+                Pop: This operation removes the top element from the stack. The element that was below the top
+                becomes the new top.<br>
+                Peek/Top: This operation retrieves the value of the top element without removing it.
+            </p>
+            <code>
+                stack = Stack()
+                stack.push(5)
+                stack.push(10)
+                stack.push(15)
+
+                print(stack.size())  # Output: 3
+
+                print(stack.pop())  # Output: 15
+                print(stack.pop())  # Output: 10
+
+                print(stack.peek())  # Output: 5
+
+                print(stack.is_empty())  # Output: False
+            </code>
+            <p>
+                It's worth noting that stacks can be implemented using other underlying data structures or
+                specialized variations such as the stack with dynamic resizing or the stack with additional
+                operations like search or min/max finding. The choice of implementation depends on the specific
+                requirements and constraints of the problem at hand.
+            </p>
+                    
+            <header>Queue</header>
+            <p>
+                In data structures, a queue is an abstract data type that follows the First-In-First-Out (FIFO)
+                principle. It represents a collection of elements where the element added first is the first one to
+                be removed. Queues have two primary operations: enqueue and dequeue, which allow elements to be
+                added and removed from specific ends of the queue.
+            </p>
+            <p>Operations:<br>
+                Enqueue: This operation adds an element to the rear (also known as the back or tail) of the
+                queue.<br>
+                Dequeue: This operation removes and returns the element from the front (also known as the head) of
+                the queue.<br>
+                Peek/Front: This operation returns the value of the element at the front without removing it.
+            </p>
+            <code>
+                queue = Queue()
+                queue.enqueue(5)
+                queue.enqueue(10)
+                queue.enqueue(15)
+
+                print(queue.size())  # Output: 3
+
+                print(queue.dequeue())  # Output: 5
+                print(queue.dequeue())  # Output: 10
+
+                print(queue.peek())  # Output: 15
+
+                print(queue.is_empty())  # Output: False
+            </code>
+            <p>
+                The choice between using an array-based or linked list-based implementation depends on factors such
+                as performance requirements, expected size changes, and the need for dynamic resizing.
+            </p>
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Trees">
+        <header style="text-align:center;">Trees</header>
+        <article>
+          <p>
+                In data structures, a tree is a hierarchical data structure that consists of nodes connected by edges. It
+                is a widely used data structure with various applications due to its ability to represent hierarchical
+                relationships and organize data in a hierarchical manner.
+            </p>
+            <p>
+                Here are the key features and concepts associated with trees:<br>
+
+                Node: Each element in a tree is called a node. A node can hold data or other nodes, known as its
+                children.<br>
+
+                Root: The topmost node in a tree is called the root node. It is the starting point for accessing all
+                other nodes in the tree.<br>
+
+                Parent and Child: A node in a tree can have zero or more child nodes. The node that is connected above
+                another node is called its parent, and the node below it is called its child.<br>
+
+                Sibling: Nodes that have the same parent are called siblings. They share the same level in the tree.<br>
+
+                Leaf: A leaf node, also known as a terminal node, is a node that has no children.<br>
+
+                Depth and Level: The depth of a node refers to the number of edges from the root to that node. The root
+                node has a depth of 0. The level of a node represents its distance from the root, with the root being at
+                level 0 and its children at level 1.<br>
+
+                Subtree: A subtree is a portion of a tree that consists of a node and its descendants, including the
+                node itself.<br>
+
+                Binary Tree: A binary tree is a tree in which each node can have at most two children, referred to as
+                the left child and the right child.<br>
+
+                Binary Search Tree (BST): A binary search tree is a binary tree where the left child of a node contains
+                a value less than the node's value, and the right child contains a value greater than the node's value.
+                BSTs allow efficient searching, insertion, and deletion operations.<br>
+
+                Balanced Tree: A balanced tree is a tree in which the heights of the left and right subtrees of any node
+                differ by at most a constant value. Examples of balanced trees include AVL trees and red-black trees.
+                They provide efficient operations and maintain a balanced structure, ensuring better performance.
+            </p>
+        
+            <header>Tree Traversal</header>
+            <p>
+                Tree traversal refers to the process of visiting and accessing all nodes in a tree data structure in
+                a specific order. There are several common ways to traverse a tree, each with its own
+                characteristics and use cases. The two main categories of tree traversal are depth-first traversal
+                and breadth-first traversal.
+            </p>
+            <p><b>Depth-First Traversal:</b><br>
+                Preorder Traversal: In preorder traversal, the root node is visited first, followed by recursively
+                visiting the left subtree and then the right subtree. The order of operations is typically root,
+                left, right.<br>
+                Inorder Traversal: In inorder traversal, the left subtree is recursively visited first, followed by
+                visiting the root node, and then the right subtree. The order of operations is typically left, root,
+                right. In binary search trees, an inorder traversal results in nodes being visited in ascending
+                order.<br>
+                Postorder Traversal: In postorder traversal, the left subtree is recursively visited first, followed
+                by visiting the right subtree, and finally the root node. The order of operations is typically left,
+                right, root. <br>
+                <b>Breadth-First Traversal:</b><br>
+                Level-Order Traversal: In level-order traversal, nodes are visited level by level from left to
+                right. Starting from the root node, all nodes at the current level are visited before moving to the
+                next level.
+            </p>
+            <code>
+                class TreeNode:
+                def __init__(self, value):
+                    self.value = value
+                    self.left = None
+                    self.right = None
+
+
+                def preorder_traversal(node):
+                if node:
+                    print(node.value)
+                    preorder_traversal(node.left)
+                    preorder_traversal(node.right)
+
+
+                def inorder_traversal(node):
+                if node:
+                    inorder_traversal(node.left)
+                    print(node.value)
+                    inorder_traversal(node.right)
+
+
+                def postorder_traversal(node):
+                if node:
+                    postorder_traversal(node.left)
+                    postorder_traversal(node.right)
+                    print(node.value)
+
+
+                def level_order_traversal(root):
+                if not root:
+                    return
+
+                queue = [root]
+                while queue:
+                    node = queue.pop(0)
+                    print(node.value)
+
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+
+
+                # Create a binary tree
+                root = TreeNode(1)
+                root.left = TreeNode(2)
+                root.right = TreeNode(3)
+                root.left.left = TreeNode(4)
+                root.left.right = TreeNode(5)
+
+                # Perform different tree traversals
+                print("Preorder Traversal:")
+                preorder_traversal(root)
+
+                print("Inorder Traversal:")
+                inorder_traversal(root)
+
+                print("Postorder Traversal:")
+                postorder_traversal(root)
+
+                print("Level-order Traversal:")
+                level_order_traversal(root)
+            </code>
+                    
+            <header>Binary Search Tree</header>
+            <p>
+                A Binary Search Tree (BST) is a type of binary tree in which each node has a key (value) that is
+                greater than all keys in its left subtree and smaller than all keys in its right subtree. This
+                property makes BSTs efficient for searching, insertion, and deletion operations.
+            </p>
+            <code>
+                    bst = BinarySearchTree()
+                    bst.insert(50)
+                    bst.insert(30)
+                    bst.insert(20)
+                    bst.insert(40)
+                    bst.insert(70)
+                    bst.insert(60)
+                    bst.insert(80)
+
+                    print("Inorder Traversal:")
+                    bst.inorder_traversal()
+                    # Output: 20, 30, 40, 50, 60, 70, 80
+
+                    print("Search 40:", bst.search)
+            </code>
+            <p>
+                It's important to note that the efficiency of BST operations depends on the tree's balance.
+                Unbalanced BSTs can degrade performance, leading to worst-case time complexity scenarios. Various
+                self-balancing BST algorithms, such as AVL trees and red-black trees, ensure the tree remains
+                balanced, providing efficient operations in all cases.
+            </p>
+                    
+            <header>B+ Tree</header>
+            <p>
+                A B+ tree is a balanced tree data structure that is commonly used in database systems and file
+                systems for efficient indexing and searching. It is an extension of the B-tree data structure with
+                additional properties that make it suitable for disk-based storage and range queries.
+            </p>
+            <code>
+                # B+ Tree Node
+                class BPlusTreeNode:
+                def __init__(self, leaf=False):
+                    self.keys = []
+                    self.children = []
+                    self.leaf = leaf
+                    self.next = None
+
+                # B+ Tree
+                class BPlusTree:
+                def __init__(self):
+                    self.root = BPlusTreeNode(leaf=True)
+
+                def insert(self, key):
+                    if key in self.search(key):
+                        print("Key already exists.")
+                        return
+
+                    node = self.root
+                    if len(node.keys) == 3:  # Split root if full
+                        new_node = BPlusTreeNode()
+                        self.root = new_node
+                        new_node.children.append(node)
+                        new_node.split_child(0)
+                        self.insert_non_full(new_node, key)
+                    else:
+                        self.insert_non_full(node, key)
+
+                def insert_non_full(self, node, key):
+                    if node.leaf:
+                        node.insert_key(key)
+                    else:
+                        i = len(node.keys) - 1
+                        while i >= 0 and key < node.keys[i]:
+                            i -= 1
+                        i += 1
+                        if len(node.children[i].keys) == 3:
+                            node.split_child(i)
+                            if key > node.keys[i]:
+                                i += 1
+                        self.insert_non_full(node.children[i], key)
+
+                def search(self, key, node=None):
+                    if node is None:
+                        node = self.root
+                    if key in node.keys:
+                        return node
+                    elif node.leaf:
+                        return None
+                    else:
+                        i = 0
+                        while i < len(node.keys) and key > node.keys[i]:
+                            i += 1
+                        return self.search(key, node.children[i])
+
+                def traverse(self, node=None):
+                    if node is None:
+                        node = self.root
+                    if node is not None:
+                        for i in range(len(node.keys)):
+                            self.traverse(node.children[i])
+                            print(node.keys[i], end=" ")
+                        self.traverse(node.children[-1])
+
+                # Usage example
+                tree = BPlusTree()
+                tree.insert(10)
+                tree.insert(20)
+                tree.insert(5)
+                tree.insert(15)
+                tree.insert(25)
+                tree.insert(12)
+                tree.insert(4)
+
+                tree.traverse()
+                print("\n")
+                print(tree.search(15))
+            </code>
+            <p>
+                B+ trees are well-suited for disk-based storage systems because they minimize disk I/O operations by
+                allowing more keys and pointers to fit in a single disk block. This reduces the number of disk reads
+                required to access data, improving overall performance. B+ trees are commonly used for indexing in
+                databases, file systems, and other applications that require efficient data retrieval and range
+                queries.<br>
+
+                The operations on a B+ tree include insertion, deletion, searching, and range queries. These
+                operations involve navigating the tree from the root to the appropriate leaf node, as well as
+                splitting or merging nodes to maintain balance.<br>
+
+                The details of B+ tree implementation can be complex and involve considerations such as node
+                splitting, merging, key redistribution, and maintaining balance. Various algorithms and techniques,
+                such as bulk loading and concurrency control, can be employed to optimize B+ tree performance in
+                specific scenarios.<br>
+                <b>NOTE<br></b>The B+ tree is a sophisticated data structure, and its complete implementation
+                involves more complex code than can be provided in a single response. However, several open-source
+                libraries and resources are available that provide complete B+ tree implementations in various
+                programming languages, which you can explore further for detailed code examples and usage.</b>
+            </p>
+                    
+            <header>Spanning Tree</header>
+            <p>
+                A spanning tree is not a specific data structure itself, but rather a concept used in graph theory.
+                It is a subgraph of a connected, undirected graph that includes all the vertices of the original
+                graph and forms a tree without any cycles. However, there are data structures and algorithms
+                commonly used to represent and work with graphs, including spanning trees.
+            </p>
+            <code>
+                # Graph representation using adjacency list
+                class Graph:
+                def __init__(self, vertices):
+                    self.vertices = vertices
+                    self.adj_list = {v: [] for v in range(vertices)}
+
+                def add_edge(self, u, v):
+                    self.adj_list[u].append(v)
+                    self.adj_list[v].append(u)
+
+                def dfs_spanning_tree(self, start):
+                    visited = [False] * self.vertices
+                    tree_edges = []
+
+                    def dfs(v):
+                        visited[v] = True
+                        for neighbor in self.adj_list[v]:
+                            if not visited[neighbor]:
+                                tree_edges.append((v, neighbor))
+                                dfs(neighbor)
+
+                    dfs(start)
+                    return tree_edges
+
+                # Usage example
+                graph = Graph(6)
+                graph.add_edge(0, 1)
+                graph.add_edge(0, 2)
+                graph.add_edge(1, 3)
+                graph.add_edge(2, 3)
+                graph.add_edge(2, 4)
+                graph.add_edge(3, 4)
+                graph.add_edge(3, 5)
+
+                spanning_tree = graph.dfs_spanning_tree(0)
+                print(spanning_tree)
+            </code>
+        </article>
+        <hr>
+      </section>
+      <section class="main-section" id="Graphs">
+        <header style="text-align:center;">Graphs</header>
+        <article>
+          <p>
+                Graphs are a fundamental data structure used to represent relationships between objects. They consist of
+                a collection of vertices (also known as nodes) connected by edges. Graphs are widely used in computer
+                science and other fields to model various real-world scenarios.
+            </p>
+            <p>
+                There are different types of graphs based on their characteristics:<br>
+
+                Undirected Graph: An undirected graph is a graph where the edges have no direction or orientation. The
+                edges connect vertices in both directions, allowing for bidirectional traversal.<br>
+                Directed Graph (Digraph): A directed graph is a graph where the edges have a specific direction. Each
+                edge connects a source vertex to a destination vertex, representing a one-way connection.<br>
+                Weighted Graph: A weighted graph is a graph where each edge has an associated weight or cost. The
+                weights can represent distances, costs, or any other quantitative measure.<br>
+
+                Cyclic Graph: A cyclic graph contains at least one cycle, which is a path that starts and ends at the
+                same vertex, possibly passing through other vertices.<br>
+
+                Acyclic Graph: An acyclic graph does not contain any cycles. It is a directed acyclic graph (DAG) if it
+                is a directed graph without any cycles.
+            </p>
+            <p>
+                Graphs can be represented using different data structures, including:<br>
+
+                Adjacency Matrix: A 2D matrix where rows and columns represent vertices. Each cell indicates the
+                presence or absence of an edge between the corresponding vertices.<br>
+
+                Adjacency List: A collection of lists or arrays where each vertex has a list of its adjacent vertices.
+                This representation is efficient for sparse graphs.<br>
+
+                Edge List: A list or array of edges, where each edge contains the source and destination vertices.
+                Additional properties such as weights can be included.<br>
+
+                Incidence Matrix: A matrix where rows represent vertices, and columns represent edges. Each cell
+                indicates the relationship between a vertex and an edge.
+            </p>
+            <p>
+                Graph algorithms involve operations such as traversal, shortest path finding, connectivity analysis, and
+                more. Some popular graph algorithms include Breadth-First Search (BFS), Depth-First Search (DFS),
+                Dijkstra's algorithm, Bellman-Ford algorithm, Prim's algorithm, and Kruskal's algorithm.
+            </p>
+                    
+            <header>Depth First Traversal</header>
+            <p>
+                To perform a Depth First Traversal (DFT) on a graph, you can use the Depth-First Search (DFS)
+                algorithm. The DFS algorithm explores as far as possible along each branch before backtracking.
+            </p>
+            <code>
+                from collections import defaultdict
+                # Graph representation using adjacency list
+                class Graph:
+                def __init__(self):
+                    self.adj_list = defaultdict(list)
+
+                def add_edge(self, u, v):
+                    self.adj_list[u].append(v)
+
+                def dfs(self, v, visited):
+                    visited.add(v)
+                    print(v, end=" ")
+
+                    for neighbor in self.adj_list[v]:
+                        if neighbor not in visited:
+                            self.dfs(neighbor, visited)
+
+                def dfs_traversal(self, start):
+                    visited = set()
+                    self.dfs(start, visited)
+
+                # Usage example
+                graph = Graph()
+                graph.add_edge(0, 1)
+                graph.add_edge(0, 2)
+                graph.add_edge(1, 3)
+                graph.add_edge(2, 3)
+                graph.add_edge(2, 4)
+                graph.add_edge(3, 4)
+                graph.add_edge(3, 5)
+
+                print("Depth-First Traversal:")
+                graph.dfs_traversal(0)
+            </code>
+                    
+            <header>Breadth First Traversal</header>
+            <p>
+                To perform a Breadth First Traversal (BFT) on a graph, you can use the Breadth-First Search (BFS)
+                algorithm. The BFS algorithm explores the graph in a level-by-level manner, visiting all the
+                vertices at the current level before moving to the next level.
+            </p>
+            <code>
+                from collections import deque
+                # Graph representation using adjacency list
+                class Graph:
+                def __init__(self):
+                    self.adj_list = {}
+
+                def add_edge(self, u, v):
+                    if u not in self.adj_list:
+                        self.adj_list[u] = []
+                    if v not in self.adj_list:
+                        self.adj_list[v] = []
+                    self.adj_list[u].append(v)
+
+                def bfs(self, start):
+                    visited = set()
+                    queue = deque()
+
+                    queue.append(start)
+                    visited.add(start)
+
+                    while queue:
+                        vertex = queue.popleft()
+                        print(vertex, end=" ")  # Process the vertex
+
+                        # Visit all neighboring vertices
+                        for neighbor in self.adj_list[vertex]:
+                            if neighbor not in visited:
+                                queue.append(neighbor)
+                                visited.add(neighbor)
+
+                # Usage example
+                graph = Graph()
+                graph.add_edge(0, 1)
+                graph.add_edge(0, 2)
+                graph.add_edge(1, 3)
+                graph.add_edge(1, 4)
+                graph.add_edge(2, 5)
+                graph.add_edge(2, 6)
+
+                graph.bfs(0)
+            </code>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
